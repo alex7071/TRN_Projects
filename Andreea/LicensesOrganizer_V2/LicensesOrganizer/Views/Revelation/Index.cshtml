@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/Revelation_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="top-border">
+    <h1>Revelation Website Template Demo</h1>
+</div>
+
+<div class="top-menu">
+    <ul id="top-menu">
+        <li>@Html.ActionLink("Archived News", "Index", "Home")</li>
+        <li>@Html.ActionLink("RSS Feeds| ", "Index", "Home")</li>
+        <li>@Html.ActionLink("Login|", "Index", "Home")</li>
+        <li>@Html.ActionLink("Sign Up| ", "Index", "Home")</li>
+    </ul>
+</div>
+
+<section id="main-menu">
+    <header>
+        <div class="topnav">
+            <a href="#news">DROPDOWN</a>
+            <a href="#news">GALLERY</a>
+            <a href="#contact">PORTOFOLIO</a>
+            <a href="#contact">FULL WIDTH</a>
+            <a href="#contact">STYLE DEMO</a>
+            <a href="#contact">HOMEPAGE</a>
+        </div>
+        <h2><em>R</em>EVELATION</h2>
+        <h3>Free PSD Website Template</h3>
+    </header>
+</section>
+
+<div class="content">
+
+    <div class="imagepage">
+        <img src="~/img/img.png" width="487" height="326" alt="Revelaton template" title="Preview"/>
+    </div>
+    <div class="imagetext">
+        <h4>A CATCHY TITLE</h4>
+        <h5>Lorem ipsum dolor sit amet, cu ancillae partiendo mei. 
+            <p>Elit ancillae vix an, nisl necessitatibus usu eu.Ei vidit iudicabit eam, est id solum paulo tibique, modo scaevola imperdiet pri no.</p>
+        </h5>      
+    </div> 
+    <div class="imagetext">
+        <button type="button" onclick="alert('Read More')">READ MORE >></button>
+    </div>
+</div>
+
+
