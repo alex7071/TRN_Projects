@@ -6,11 +6,37 @@
     <title>@Page.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @RenderBody()
+
 </head>
 <body>
-  
-    
+    <div class="page-wrap">
+        <div class="top-menu">
+            <ul id="top-menu">
+                <li>@Html.ActionLink("Archived News", "Index", "Home")</li>
+                <li>@Html.ActionLink("RSS Feeds| ", "Index", "Home")</li>
+                <li>@Html.ActionLink("Login|", "Index", "Home")</li>
+                <li>@Html.ActionLink("Sign Up| ", "Index", "Home")</li>
+            </ul>
+        </div>
+
+
+        <div class="main-menu-container">
+            <div class="logo">
+                <h2><em>R</em>EVELATION</h2>
+                <h3>Free PSD Website Template</h3>
+            </div>
+            <div class="menu-right">
+                <a href="#news">DROPDOWN</a>
+                <a href="#news">GALLERY</a>
+                <a href="#contact">PORTOFOLIO</a>
+                <a href="#contact">FULL WIDTH</a>
+                <a href="#contact">STYLE DEMO</a>
+                <a href="#contact">HOMEPAGE</a>
+            </div>
+        </div>
+
+        @RenderBody()
+     </div>
 </body>
 </html>
  

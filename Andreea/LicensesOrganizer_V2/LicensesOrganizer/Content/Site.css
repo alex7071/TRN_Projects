@@ -1,9 +1,13 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
     background-color: black;
+    text-align: center;
 }
 
+.page-wrap {
+    width: 1024px;
+    margin: 0 auto;
+    text-align: left;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -23,18 +27,6 @@ select,
 textarea {
     max-width: 280px;
 }
-
-
-.top-border {
-    font-size: 11px;
-    line-height: 13px;
-    font-family: "Georgia";
-}
-.top-border h1 {
-        font-size: 18px;
-        color: white;
-        font-family: "Georgia";
-    }
 
 .top-menu {
     font-size: 14px;
@@ -45,15 +37,12 @@ textarea {
     padding-bottom: 48px;
 }
 
-
-
 li {
     float: left;
     list-style-type: none;
-   
 }
 
-li menu{
+    li menu {
         display: block;
         color: white;
         text-align: center;
@@ -61,17 +50,11 @@ li menu{
         text-decoration: none;
         background: #55415f
     }
-li menu:hover {
-          background-color: white;
+
+        li menu:hover {
+            background-color: white;
         }
 
-
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: black;
-    
-}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -89,17 +72,14 @@ body {
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
-textarea {
-    max-width: 280px;
-}
-
 
 .top-border {
     font-size: 11px;
     line-height: 13px;
     font-family: "Georgia";
 }
-.top-border h1 {
+
+    .top-border h1 {
         font-size: 18px;
         color: white;
         font-family: "Georgia";
@@ -112,113 +92,80 @@ textarea {
     background: #55415f;
     padding-top: 10px;
     padding-bottom: 25px;
-    padding-right:200px;
 }
-.topnav{
-    padding-right:200px;
+
+.topnav {
+    padding-right: 200px;
 }
+
 .top-menu li {
     color: white;
     text-align: left;
     float: right;
-    padding-right:15px;
+    padding-right: 15px;
+    5
 }
 
 li:hover {
-            background-color: white;
-        }
-#main-menu {
-    background: #ffffff ;
-    padding-top: 5px;
-    padding-bottom: 40px;
-}
-
-
-#main-meu h2 {
-    font-size: 30px;
-    line-height: 3px;
-    color: rgb(0,0,0);
-    font-family: "Georgia";
-    text-align: right;
-    margin-left: 400px;
-}
-#main-menu h3 {
-    font-size: 12px;
-    line-height: 12px;
-    color: rgb(153,153,153);
-    font-family: "Georgia";
-
-    margin-left: 400px;
-}
-header h2 {
-    font-size: 37px;
-    line-height: 37px;
-    color: rgb(0,0,0);
-    font-family: "Georgia";
-    margin-left: 400px;
-
-   
-}
-h2 em {
-    font-size:60px;
-    font-style:normal;
-}
-.topnav {
-    overflow: hidden;
     background-color: white;
 }
-
-    .topnav a {
-        float: right;
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        border-bottom: 3px solid transparent;
-        border-bottom-color: #ebebeb;
-        font-size: 12px;
-        line-height: 12px;
-        color: rgb(85,65,95);
-        font-family: "Georgia";   
-        padding-top: 40px;
-
-        
-    }
-body .content {
-    background: #ebebeb;   
-    padding-top:40px;
-    padding-left:400px;
-    padding-right: 1030px;
-    padding-bottom: 50px;
-}
-
-.content h4 {
-    font-size: 36px;
-    line-height: 43px;
-    color: rgb(51,51,51);
-    font-family: "Georgia";
-    text-align: left;
-}
-.content {
-    display: table;     
-    float: right;
-}
-.body-content .imagepage {
-    padding: 50px;
-    display: table;
-    float: left;
-}
-.imagetext h5 {
+.content h5 {
     width: 380px;
-    height: 110x;
+    height: 110px;
+    font-size: 16px;
+    color: rgb(153,153,153);
+    font-family: "Georgia";
+}
+
+.content {
+    background: #ebebeb;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 60px;
+    display: inline-block;
+    position: relative;
+    height: 416px;
+    width: 100%;
+}
+
+.imagepage-container {
+    display: inline;
+    float: left;
+    padding-right: 40px;
+}
+
+.imagetext-container {
+    display: inline;
+    float: left;
+    padding-left: 40px;
+    vertical-align: bottom;
+    line-height: 2.5;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 30px;
+}
+    .imagetext-container h4 {
+        font-size: 36px;
+        line-height: 43px;
+        color: rgb(51,51,51);
+        font-family: "Georgia";
+    }
+.imagepage-container h5 {
+    width: 380px;
+    height: 83px;
     font-size: 16px;
     line-height: 22px;
     color: rgb(153,153,153);
     font-family: "Georgia";
 }
-.imagetext [type=button] {
-    width: 140px;
-    height: 31px;
+.text-container {
+    display: inline-block;
+    height: 100%;
+    line-height: 10px;
+    position: relative;
+}
+
+a.button {
     border-radius: 7px;
     background-color: #55415f;
     font-size: 16px;
@@ -226,4 +173,109 @@ body .content {
     color: rgb(255,255,255);
     font-family: "Georgia";
     text-align: right;
+    padding: 6px 10px 6px 10px;
 }
+
+.main-menu-container {
+    overflow: hidden;
+    background-color: white;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.menu-right {
+    display: inline;
+}
+
+    .menu-right a {
+        float: right;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        border-bottom-color: #ebebeb;
+        font-size: 12px;
+        line-height: 12px;
+        color: rgb(85,65,95);
+        font-family: "Georgia";
+        padding-top: 40px;
+    }
+
+.logo h2 {
+    font-size: 26px;
+    color: rgb(0,0,0);
+    font-family: "Georgia";
+    padding-left: 20px;
+}
+
+.logo h3 {
+    font-size: 12px;
+    line-height: 12px;
+    color: rgb(153,153,153);
+    font-family: "Georgia";
+    margin-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+
+h2 em {
+    font-size: 34px;
+    font-style: normal;
+}
+
+.slider-container {
+    display: inline-block;
+    height: 416px;
+    width: 100%;
+    background:white;
+    position: relative;
+}
+    .slider-container .slide-container1 {
+        display: inline-block;
+        float: left;
+        width: 25%;
+        height: 300px;
+        padding-left: 30px;
+    }
+    .slider-container .slide-container2 {
+        display: inline-block;
+        float: left;
+        width: 25%;
+        height: 300px;
+        padding-left: 20px;
+    }
+    .slider-container .slide-container3 {
+        display: inline-block;
+        float: left;
+        width: 25%;
+        height: 300px;
+        border: medium;
+        padding-left: 20px;
+    }
+    .slider-container .slide-container4 {
+        display: inline-block;
+        float: left;
+        width: 25%;
+        height: 300px;
+        padding-left: 20px;
+        padding-right: 30px;
+        margin-top: 0px;
+    }
+    .slider-container h4 {
+        font-size: 18px;
+        color: rgb(85,65,95);
+        font-family: "Georgia";
+        border-bottom: 2px solid transparent;
+        border-bottom-color: #ebebeb;
+        border-spacing: 20px 10px;
+        
+    }
+    .slider-container h5 {
+        font-size: 13px;
+        color: rgb(128,125,119);
+        font-family: "Georgia";
+        text-align: center;
+    }
