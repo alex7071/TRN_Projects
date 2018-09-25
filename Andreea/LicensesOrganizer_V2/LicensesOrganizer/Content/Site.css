@@ -1,6 +1,11 @@
 ﻿body {
-    background-color: black;
+    background-color: white;
     text-align: center;
+}
+
+.stick-left {
+    float: left;
+    margin-bottom: 0;
 }
 
 .page-wrap {
@@ -261,7 +266,7 @@ h2 em {
         width: 25%;
         height: 300px;
         padding-left: 20px;
-        padding-right: 30px;
+        padding-right: 30px;  
         margin-top: 0px;
     }
     .slider-container h4 {
