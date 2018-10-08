@@ -3,5 +3,65 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="tableLayout-container">
+    <table id="paginator">
+        <thead>
+            <tr>                
+                <th>Id</th>
+                <th>Fisrt-name</th>
+                <th>Last-name</th>
+                <th>Email</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr class="odd">
+                <td>1</td>
+                <td>Andreea</td>
+                <td>Iliuta</td>
+                <td>ilitaandreea@gmail.com</td>
+                <td>female</td>
+            </tr>
+            <tr class="even">
+                <td>2</td>
+                <td>Oana</td>
+                <td>Ioana</td>
+                <td>ioana@gmail.com</td>
+                <td>female</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Fisrt-name</th>
+                <th>Last-name</th>
+                <th>Email</th>
+                <th>Gender</th>
+            </tr>
+    </table>
+    <div class="paging-container">
+        <div class="manage-pages">
+            <div id="first-page"><a class="button-first-page">&laquo</a></div>
+            <div id="previous-page"><a class="button-first-page" href="#">&lt</a></div>
+            <div id="current-page"><a class="button-current-page" href="#">1</a></div>
+            <div id="next-page"><a class="button-next-page" href="#">&gt</a></div>
+            <div id="last-page"><a class="button-last-page" href="#">&raquo</a></div>       
+        </div>
+
+        <div class="manage-items-per-page">
+            <div class="items-per-page-container">
+                <div id="label-items"> <p>Items per page</p></div>
+                <div id="drop-down-items-per-pag">
+                    <select id="items-select">
+                        <option value="">--Select items per page--</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="current-items"><p>1-10 of 100</p></div>
+            </div>
+        </div>
+    </div>
+</div>
 

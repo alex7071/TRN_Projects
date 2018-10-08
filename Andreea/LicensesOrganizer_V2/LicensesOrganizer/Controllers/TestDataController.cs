@@ -1029,7 +1029,7 @@ namespace LicensesOrganizer.Controllers
 
             var orderedList = order == "desc" ? list.OrderByDescending(r => typeof(Row).GetProperty(index).GetValue(r)) : list.OrderBy(r => typeof(Row).GetProperty(index).GetValue(r));
 
-            return Json(new { total = Math.Ceiling((decimal)1000/resultsPerPage), page, records = list.Count ,data = orderedList.Skip((page - 1) * resultsPerPage).Take(resultsPerPage) }, JsonRequestBehavior.AllowGet);
+            return Json(new { totalPages = Math.Ceiling((decimal)orderedList.Count()/resultsPerPage), page, records = list.Count ,data = orderedList.Skip((page - 1) * resultsPerPage).Take(resultsPerPage) }, JsonRequestBehavior.AllowGet);
         }
     }
 

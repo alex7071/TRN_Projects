@@ -174,6 +174,9 @@
     <Content Include="img\4.png" />
     <Content Include="img\5.png" />
     <Content Include="img\img.png" />
+    <Content Include="img\sort_asc.png" />
+    <Content Include="img\sort_both.png" />
+    <Content Include="img\sort_desc.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
