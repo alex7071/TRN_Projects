@@ -4,3 +4,4 @@
     button.classList.toggle('stick-left');
 
 }
+

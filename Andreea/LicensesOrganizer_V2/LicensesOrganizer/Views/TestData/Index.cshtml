@@ -6,7 +6,7 @@
 <div class="tableLayout-container">
     <table id="paginator">
         <thead>
-            <tr>                
+            <tr>
                 <th>Id</th>
                 <th>Fisrt-name</th>
                 <th>Last-name</th>
@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-             <tr class="odd">
+            <tr class="odd">
                 <td>1</td>
                 <td>Andreea</td>
                 <td>Iliuta</td>
@@ -30,38 +30,42 @@
                 <td>female</td>
             </tr>
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Fisrt-name</th>
-                <th>Last-name</th>
-                <th>Email</th>
-                <th>Gender</th>
-            </tr>
-    </table>
+     </table>
     <div class="paging-container">
         <div class="manage-pages">
             <div id="first-page"><a class="button-first-page">&laquo</a></div>
-            <div id="previous-page"><a class="button-first-page" href="#">&lt</a></div>
-            <div id="current-page"><a class="button-current-page" href="#">1</a></div>
+            <div id="previous-page"><a class="button-previous-page" href="#">&lt</a></div>
+            <div id="current-page">
+                <span>
+                    <a class="button-current-page" onclick="getGridData(1)">1</a>
+                    <a class="button-current-page" onclick="getGridData(2)">2</a>
+                    <a class="button-current-page" onclick="getGridData(3)">3</a>
+                    <a class="button-current-page" onclick="getGridData(4)">4</a>
+                    <a class="button-current-page" onclick="getGridData(5)">5</a>
+                </span>
+            </div>
             <div id="next-page"><a class="button-next-page" href="#">&gt</a></div>
-            <div id="last-page"><a class="button-last-page" href="#">&raquo</a></div>       
+            <div id="last-page"><a class="button-last-page" href="#">&raquo</a></div>
         </div>
 
         <div class="manage-items-per-page">
             <div class="items-per-page-container">
-                <div id="label-items"> <p>Items per page</p></div>
+                <div id="label-items"> <p>Show</p></div>
                 <div id="drop-down-items-per-pag">
                     <select id="items-select">
-                        <option value="">--Select items per page--</option>
-                        <option value="10">10</option>
+                        <option value="10" selected="selected">10</option>
                         <option value="20">20</option>
                         <option value="50">50</option>
                     </select>
                 </div>
-                <div class="current-items"><p>1-10 of 100</p></div>
+                <div id="label-items"> <p>entries</p></div>
+                <div class="current-items"><p>per page</p></div>
             </div>
         </div>
     </div>
 </div>
 
+@section scripts 
+{
+    <script src="@Url.Content("~/bundles/datagrid")"></script>
+}
