@@ -3,6 +3,8 @@ var currentPageIndex = 1;
 var currentItemsPerPage = null;
 var currentTotalPages = null;
 var pageNumber = null;
+var sortByFieldName = null;
+var gridSortOrder = 'asc';
 //data loading methods
 
 function getGridData(currentPage, pageSize, indexFieldName, sortOrder, pageNumber) {
@@ -15,15 +17,16 @@ function getGridData(currentPage, pageSize, indexFieldName, sortOrder, pageNumbe
             totalPages: pageNumber
         },
         function (data) {
-            currentPageIndex = data.page;  
-            pageNumber = data.totalPages;           
+            currentPageIndex = data.page;
+            pageNumber = data.totalPages;
+            sortByFieldName = data.order;
             onGetGridDataSuccess(data);
             generateGridPager(data);
         });
 };
 
 function refreshGrid() {
-    getGridData(currentPageIndex, currentItemsPerPage, pageNumber);
+    getGridData(currentPageIndex, currentItemsPerPage, sortByFieldName, gridSortOrder, pageNumber);
 };
 
 function onGetGridDataSuccess(response) {
@@ -38,6 +41,7 @@ function onGetGridDataSuccess(response) {
                 <td>{{last_name}}</td>\
                 <td>{{email}}</td>\
                 <td>{{gender}}</td>\
+                <td>{{ip_address}}</td>\
             </tr>\
         </tr>";
 
@@ -51,12 +55,15 @@ function onGetGridDataSuccess(response) {
         tableBodyHtml += rowHTML;
     }
     dataTablecontent.append(tableBodyHtml);
+    //set asc class for default corted column
+    var defaultSortColumn = document.querySelectorAll('[data-fieldname="id"]');
+    $(defaultSortColumn).addClass('asc');
 };
 
 //paginator methods
 function generateGridPager(response) {
     var pageNumbersContainer = $('#current-page span');
-    var pageNumberTemplate = "<a class={{className}} onclick=\"getGridData{{pageIndex}}\">{{pageIndex}}</a>";
+    var pageNumberTemplate = '<a class={{className}} data-pageindex="{{pageIndex}}">{{pageIndex}}</a>';
 
 
     var previousButton = $('#previous-page');
@@ -69,13 +76,34 @@ function generateGridPager(response) {
         previousButton.removeClass('disabled');
     }
 
-    var nextButton = $('#next-page'); 
+    var nextButton = $('#next-page');
     if (currentPageIndex === currentTotalPages) {
         nextButton.addClass('disabled');
     }
     else {
         nextButton.removeClass('disabled');
     }
+
+    var pagerStartIndex = 0;
+    if (currentPageIndex - 2 <= 0) {
+        pagerStartIndex = 1;
+    } else {
+        pagerStartIndex = currentPageIndex - 2;
+    }
+
+    var pagerEntries = '';
+    for (var i = pagerStartIndex; i < pagerStartIndex + 5 && i < response.totalPages; i++) {
+        var pagerEntry = Mustache.render(pageNumberTemplate, { pageIndex: i, className: 'test' });
+        pagerEntries += pagerEntry;
+    }
+
+    pageNumbersContainer.empty();
+    pageNumbersContainer.append(pagerEntries);
+
+    pageNumbersContainer.children('a').click(function () {
+        currentPageIndex = $(this).data('pageindex');
+        refreshGrid();
+    }); 
 };
 
 function initializeGridPager() {
@@ -102,10 +130,10 @@ function initializeGridPager() {
         else {
             currentPageIndex = (currentPageIndex - 1);
             refreshGrid();
-        }          
-       
+        }
+
     });
-    var nextButton = $('#next-page'); 
+    var nextButton = $('#next-page');
     nextButton.click(function () {
         if (currentPageIndex === currentTotalPages) {
             return
@@ -113,8 +141,8 @@ function initializeGridPager() {
         else {
             currentPageIndex = (currentPageIndex + 1);
             refreshGrid();
-        }          
-    });  
+        }
+    });
 };
 
 //show elepents per page methods
@@ -123,16 +151,32 @@ function initializeItemPerPageDropdown() {
         currentPageIndex = 1;
         currentItemsPerPage = getSelectedItemsPerPage();
         refreshGrid();
-    }); 
+    });
 };
 
 function getSelectedItemsPerPage() {
     return $("#items-select option:selected").val();
 };
 
+
+//sort table
+function initializeGridSorting() {
+    var rowHeaders = $('#paginator thead th');
+    rowHeaders.click(function () {
+        sortByFieldName = $(this).data('fieldname');
+        gridSortOrder = (gridSortOrder === 'asc' ? 'desc' : 'asc');
+        rowHeaders.removeClass('desc asc');
+        $(this).addClass(gridSortOrder);
+
+        refreshGrid();
+    });
+};
+
 $(document).ready(function () {
     currentItemsPerPage = getSelectedItemsPerPage();
     initializeItemPerPageDropdown();
     initializeGridPager();
+    initializeGridSorting();
+
     getGridData();
 });

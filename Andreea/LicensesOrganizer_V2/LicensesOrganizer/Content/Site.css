@@ -367,14 +367,29 @@ h2 em {
     background-position: center right;
     cursor: pointer;
     border-bottom: 1px solid black;
+    user-select: none;
+    font-family: Verdana;
+    background-color:aliceblue;
+    text-decoration-color:black;
 }
+
+#paginator thead th.asc {
+    background-image: url("/img/sort_asc.png");
+}
+
+#paginator thead th.desc {
+        background-image: url("/img/sort_desc.png");
+}
+
 
 #paginator tbody tr.odd {
     background-color: #f9f9f9;
+    text-decoration-color: black;
 }
 
 #paginator tbody tr.even {
     background-color: #ffffff;
+    text-decoration-color: black;
 }
 
 #paginator tfoot tr {
@@ -392,6 +407,7 @@ h2 em {
     min-height: 1.2em;
     padding: 0px 2px 1px;
     cursor: pointer;
+    font-family: Verdana;
 }
 
 select:hover {
@@ -400,4 +416,5 @@ select:hover {
 
 #items-select {
     width: 60px;
+    font-family: Verdana;
 }
