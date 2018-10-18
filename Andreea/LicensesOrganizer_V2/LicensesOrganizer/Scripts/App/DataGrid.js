@@ -5,7 +5,6 @@ var currentTotalPages = null;
 var pageNumber = null;
 var sortByFieldName = null;
 var gridSortOrder = 'asc';
-//data loading methods
 
 function getGridData(currentPage, pageSize, indexFieldName, sortOrder, pageNumber) {
     $.get(gridDataUrl,
@@ -55,9 +54,6 @@ function onGetGridDataSuccess(response) {
         tableBodyHtml += rowHTML;
     }
     dataTablecontent.append(tableBodyHtml);
-    //set asc class for default corted column
-    var defaultSortColumn = document.querySelectorAll('[data-fieldname="id"]');
-    $(defaultSortColumn).addClass('asc');
 };
 
 //paginator methods
@@ -162,13 +158,29 @@ function getSelectedItemsPerPage() {
 //sort table
 function initializeGridSorting() {
     var rowHeaders = $('#paginator thead th');
+    var defaultSortColumn = document.querySelectorAll('[data-fieldname="id"]');
+    $(defaultSortColumn).addClass('asc');
     rowHeaders.click(function () {
         sortByFieldName = $(this).data('fieldname');
-        gridSortOrder = (gridSortOrder === 'asc' ? 'desc' : 'asc');
-        rowHeaders.removeClass('desc asc');
-        $(this).addClass(gridSortOrder);
+        if (sortByFieldName === "id") {
+            gridSortOrder = (gridSortOrder === 'asc' ? 'desc' : 'asc');
+            rowHeaders.removeClass('desc asc');
+            $(this).addClass(gridSortOrder);
 
-        refreshGrid();
+            refreshGrid();
+            var defaultSortColumn = document.querySelectorAll('[data-fieldname="id"]');
+            $(defaultSortColumn).addClass('asc');
+        }
+        else {
+            gridSortOrder = (gridSortOrder === 'asc' ? 'desc' : 'asc');
+            rowHeaders.removeClass('desc asc');
+            $(this).addClass(gridSortOrder);
+
+            refreshGrid();
+            var defaultSortColumn = document.querySelectorAll('[data-fieldname="id"]');
+            $(defaultSortColumn).removeClass('asc desc');
+        }
+        
     });
 };
 
