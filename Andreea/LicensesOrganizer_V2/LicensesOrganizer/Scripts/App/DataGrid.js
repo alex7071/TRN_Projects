@@ -29,8 +29,6 @@ function refreshGrid() {
 };
 
 function onGetGridDataSuccess(response) {
-
-    var dataGrid = $('#paginator');
     var dataTablecontent = $('#paginator tbody');
     var tableRowTemplate = "\
         <tr>\
@@ -58,10 +56,6 @@ function onGetGridDataSuccess(response) {
 
 //paginator methods
 function generateGridPager(response) {
-    var pageNumbersContainer = $('#current-page span');
-    var pageNumberTemplate = '<a class={{className}} data-pageindex="{{pageIndex}}">{{pageIndex}}</a>';
-
-
     var previousButton = $('#previous-page');
     if (currentPageIndex === 1) {
         // Here add the disabled class
@@ -79,7 +73,9 @@ function generateGridPager(response) {
     else {
         nextButton.removeClass('disabled');
     }
-
+    //pagination 1-5...
+    var pageNumbersContainer = $('#current-page span');
+    var pageNumberTemplate = '<a class={{className}} data-pageindex="{{pageIndex}}">{{pageIndex}}</a>';
     var pagerStartIndex = 0;
     if (currentPageIndex - 2 <= 0) {
         pagerStartIndex = 1;
