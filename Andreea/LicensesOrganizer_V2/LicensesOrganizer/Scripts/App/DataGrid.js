@@ -58,11 +58,11 @@ function onGetGridDataSuccess(response) {
 function generateGridPager(response) {
     var previousButton = $('#previous-page');
     if (currentPageIndex === 1) {
-        // Here add the disabled class
+        // add the disabled class
         previousButton.addClass('disabled');
     }
     else {
-        // Here remove the disabled class
+        // remove the disabled class
         previousButton.removeClass('disabled');
     }
 
@@ -115,7 +115,7 @@ function initializeGridPager() {
 
     var previousButton = $('#previous-page');
     previousButton.click(function () {
-        // Here check if we're already on the first page. If so, don't do anything. Otherwise, do the regular.
+        // check if we're already on the first page. If so, don't do anything. Otherwise, do the regular.
         if (currentPageIndex === 1) {
             return
         }
@@ -137,7 +137,7 @@ function initializeGridPager() {
     });
 };
 
-//show elepents per page methods
+//show elements per page methods
 function initializeItemPerPageDropdown() {
     $('#items-select').change(function () {
         currentPageIndex = 1;
